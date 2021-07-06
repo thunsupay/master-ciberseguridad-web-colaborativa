@@ -15,7 +15,6 @@ server.pid
 *.iml
 *.eml
 *.tar.gz
-dist
 libs
 #Eclipse
 *.pydevproject
