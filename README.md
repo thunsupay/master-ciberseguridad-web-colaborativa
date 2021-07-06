@@ -13,7 +13,7 @@ Follow these steps to setup a local environment on your machine
 2. Unzip previous file
 3. Add `play` to your PATH environment variable
 4. Execute `play run`
-5. Visit `http://localhost:9000`
+5. Visit `http://localhost:9090`
 
 
 ### IDE Integration:
