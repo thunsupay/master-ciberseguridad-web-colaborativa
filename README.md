@@ -1,4 +1,4 @@
-## Running website steps 
+## Running web steps 
 
 #### Requirements:
 
