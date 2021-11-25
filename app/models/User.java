@@ -76,18 +76,27 @@ public class User {
         json.addProperty(Constants.User.FIELD_MARK, mark);
 
         File file = getFile();
-        if (file.exists()){
-            file.delete();
+        
+        if (!file.exists()){
+            //En caso usuario existe crear usuario
+            try {
+                file.createNewFile();
+                FileOutputStream out = new FileOutputStream(file);
+                out.write(json.toString().getBytes());
+            } catch (IOException e) {
+                Logger.error("Error saving user: " + username);
+                Logger.error(e.getMessage());
+            }
+        }else{
+            //En caso usuario no existe imprimir error en consola
+            Logger.error("Username " + username + " exists.");
         }
+    }
 
-        try {
-            file.createNewFile();
-            FileOutputStream out = new FileOutputStream(file);
-            out.write(json.toString().getBytes());
-        } catch (IOException e) {
-            Logger.error("Error saving user: " + username);
-            Logger.error(e.getMessage());
-        }
+    // Validar existencia de usuario
+    public boolean usernameExists(){
+        File file = getFile();
+        return file.exists();
     }
 
     public static User loadUser(String username){

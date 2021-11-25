@@ -3,8 +3,17 @@
 
 #{set 'moreScripts'}
     <script>
+
+    // Variable condicional
+    var usernameExists = ${usernameExists};
+
     $(document).ready(function(){
 
+        // En caso usuario existe mostrar mensaje alerta
+        if(usernameExists){
+            alert("Username ${usernameValidated} exists!!");
+        }
+        
         $('#register-submit').click(function(){
             result = validateForm();
 
